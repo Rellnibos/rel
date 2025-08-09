@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio TKJ Borrel</title>
+    <link rel="stylesheet" href="css.css">
+    <!-- Font Awesome untuk Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+    <!-- LOADING SCREEN -->
+<div id="loading-screen">
+    <div class="loader"></div>
+    <p>Nungguin ya...</p>
+</div>
+    <!-- HEADER -->
+    <header data-aos="fade-down">
+        <div class="logo"><i class="fas fa-network-wired"></i> Borrel<span>TKJ One</span></div>
+        <!-- Tombol Hamburger -->
+    <div class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+
+        <nav>
+            <a href="#home"><i class="fas fa-home"></i> Home</a>
+            <a href="#about"><i class="fas fa-user"></i> Tentang</a>
+            <a href="#projects"><i class="fas fa-project-diagram"></i> Proyek</a>
+            <a href="#contact"><i class="fas fa-envelope"></i> Kontak</a>
+        </nav>
+        <!-- Tombol Dark Mode -->
+    <button id="dark-mode-toggle"><i class="fas fa-moon"></i></button>
+    <button onclick="window.open('https://wa.me/6285183030438?text=Halo%20Borrel,%20saya%20ingin%20bertanya', '_blank');">Hubungi Saya!</button>
+
+
+    </header>
+
+    <!-- HOME -->
+    <section id="home">
+        <div class="home-content" data-aos="zoom-in">
+            <h1 id="hero-title">Halo, Saya Borrel</h1>
+            <p>Siswa TKJ | Web Developer Pemula | Jaringan Enthusiast</p>
+            <a href="#about" class="btn">Lihat Profil</a>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" data-aos="fade-up">
+        <h2><i class="fas fa-user"></i> Tentang Saya</h2>
+        <p>
+            Saya adalah siswa Teknik Komputer & Jaringan yang bersemangat mempelajari dunia IT.  
+            Keahlian saya meliputi:
+        </p>
+        <ul>
+            <li><i class="fas fa-network-wired"></i> Instalasi Jaringan LAN & WAN</li>
+            <li><i class="fas fa-tools"></i> Perbaikan & Maintenance PC</li>
+            <li><i class="fas fa-server"></i> Konfigurasi Server MikroTik</li>
+            <li><i class="fas fa-code"></i> Dasar Pemrograman Web</li>
+        </ul>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <h2 data-aos="fade-up"><i class="fas fa-project-diagram"></i> Proyek Saya</h2>
+        <div class="project-list">
+            <div class="project-card" data-aos="flip-left">
+                <i class="fas fa-plug"></i>
+                <h3>Instalasi Kabel LAN</h3>
+                <p>Proyek pemasangan jaringan di laboratorium sekolah.</p>
+            </div>
+            <div class="project-card" data-aos="flip-left" data-aos-delay="200">
+                <i class="fas fa-server"></i>
+                <h3>Server MikroTik</h3>
+                <p>Konfigurasi PPPoE dan firewall untuk jaringan sekolah.</p>
+            </div>
+            <div class="project-card" data-aos="flip-left" data-aos-delay="400">
+                <i class="fas fa-globe"></i>
+                <h3>Website Portofolio</h3>
+                <p>Website ini dibuat untuk menampilkan profil saya.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" data-aos="fade-up">
+        <h2><i class="fas fa-envelope"></i> Kontak</h2>
+        <p><i class="fas fa-envelope-open-text"></i> Email: rellnihboss26@gmail.com</p>
+        <p><i class="fab fa-instagram"></i> Instagram:@azarrelaprln._</p>
+        <p><i class="fab fa-github"></i> GitHub: https://github.com/Rellnibos/azarrel</p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer data-aos="fade-up">
+        <p>&copy; 2025 Portofolio TKJ Borrel. Dibuat dengan ❤️</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000, // durasi animasi (ms)
+            once: true      // animasi hanya sekali saat scroll
+        });
+    </script>
+
+    <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
+<script>
+    const toggleBtn = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+
+    // Cek apakah user sudah simpan preferensi mode
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        body.classList.add('dark-mode');
+    }
+
+    toggleBtn.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        
+        if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            localStorage.setItem('darkMode', 'disabled');
+        }
+    });
+</script>
+
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navbar = document.getElementById('navbar');
+
+    menuToggle.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+    });
+</script>
+
+<script>
+    // Hilangkan loading setelah halaman selesai dimuat
+    window.addEventListener("load", () => {
+        document.getElementById("loading-screen").style.display = "none";
+    });
+</script>
+
+<script>
+    const element = document.getElementById("hero-title");
+    const text = element.textContent; // ambil teks lama
+    element.textContent = ""; // kosongkan dulu
+    let index = 0;
+
+    function typeEffect() {
+        if (index < text.length) {
+            element.textContent += text.charAt(index);
+            index++;
+            setTimeout(typeEffect, 100);
+        }
+    }
+
+    window.addEventListener("load", () => {
+        document.getElementById("loading-screen").style.display = "none";
+        typeEffect();
+    });
+</script>
+
+<script>
+  const quickButtons = document.getElementById('quick-buttons');
+  let lastScrollTop = 0;
+
+  window.addEventListener('scroll', () => {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+      // Scroll ke bawah → tampilkan tombol
+      quickButtons.style.transform = 'translateY(0)';
+      quickButtons.style.opacity = '1';
+    } else {
+      // Scroll ke atas → sembunyikan tombol
+      quickButtons.style.transform = 'translateY(100px)';
+      quickButtons.style.opacity = '0';
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+  });
+</script>
+
+</body>
+<button id="btn-wa-fixed" onclick="window.open('https://wa.me/6285183030438?text=Halo%20Arrel,%20saya%20ingin%20bertanya', '_blank');" aria-label="Chat WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</button>
+</html>
